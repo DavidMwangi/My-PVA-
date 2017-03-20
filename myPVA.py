@@ -1,16 +1,24 @@
 import wolframalpha
+import wikipedia
 
 while True:
     
 
     userInput = input("Ask me a question: ")
 
-    app_id = "W496W7-7W9WWWTAGR"
+    try:
+        
 
-    client = wolframalpha.Client(app_id)
+        app_id = "W496W7-7W9WWWTAGR"
 
-    result = client.query(userInput)
+        client = wolframalpha.Client(app_id)
 
-    answer = next(result.results).text
+        result = client.query(userInput)
 
-    print (answer)
+        answer = next(result.results).text
+
+        print (answer)
+
+    except:
+
+        print (wikipedia.summary(userInput))
